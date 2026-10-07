@@ -4,7 +4,10 @@
 
 ## Introduction
 ------------
-The MultiPDF Chat App is a Python application that allows you to chat with multiple PDF documents. You can ask questions about the PDFs using natural language, and the application will provide relevant responses based on the content of the documents. This app utilizes a language model to generate accurate answers to your queries. Please note that the app will only respond to questions related to the loaded PDFs.
+- Streamlit app for chatting with one or more PDF documents in natural language.
+- Upload PDFs in the sidebar; the app extracts their text with PyPDF2, splits it into chunks, and indexes those chunks with OpenAI embeddings in a FAISS vector store.
+- Questions are answered by retrieving the most relevant passages and sending them, with the conversation history, to ChatOpenAI.
+- Process your documents before asking a question. Replies are based on the PDFs you loaded.
 
 ## How It Works
 ------------
@@ -45,7 +48,7 @@ To use the MultiPDF Chat App, follow these steps:
 
 1. Ensure that you have installed the required dependencies and added the OpenAI API key to the `.env` file.
 
-2. Run the `main.py` file using the Streamlit CLI. Execute the following command:
+2. Run the app with the Streamlit CLI. Execute the following command:
    ```
    streamlit run app.py
    ```
